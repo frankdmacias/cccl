@@ -21,6 +21,8 @@
 #pragma once
 
 #include <thrust/detail/config.h>
+
+_CCCL_IMPLICIT_SYSTEM_HEADER
 #include <utility>
 
 THRUST_NAMESPACE_BEGIN
@@ -104,7 +106,7 @@ template <typename T1, typename T2>
   pair(const std::pair<U1,U2> &p);
 
   /*! \p swap swaps the elements of two <tt>pair</tt>s.
-   *  
+   *
    *  \param p The other <tt>pair</tt> with which to swap.
    */
   inline __host__ __device__
@@ -117,7 +119,7 @@ template <typename T1, typename T2>
  *  \param x The first \p pair to compare.
  *  \param y The second \p pair to compare.
  *  \return \c true if and only if <tt>x.first == y.first && x.second == y.second</tt>.
- *  
+ *
  *  \tparam T1 is a model of <a href="https://en.cppreference.com/w/cpp/concepts/equality_comparable">Equality Comparable</a>.
  *  \tparam T2 is a model of <a href="https://en.cppreference.com/w/cpp/concepts/equality_comparable">Equality Comparable</a>.
  */

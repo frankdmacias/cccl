@@ -18,6 +18,8 @@
 
 #include <thrust/detail/config.h>
 
+_CCCL_IMPLICIT_SYSTEM_HEADER
+
 #include <thrust/pair.h>
 #include <thrust/detail/swap.h>
 #include <thrust/tuple.h>

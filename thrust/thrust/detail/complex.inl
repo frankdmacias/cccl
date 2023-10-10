@@ -16,8 +16,11 @@
 
 #pragma once
 
-#include <thrust/complex.h>
 #include <thrust/detail/config.h>
+
+_CCCL_IMPLICIT_SYSTEM_HEADER
+
+#include <thrust/complex.h>
 #include <thrust/detail/type_traits.h>
 #include <thrust/type_traits/is_trivially_relocatable.h>
 

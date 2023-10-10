@@ -17,6 +17,8 @@
 #pragma once
 
 #include <thrust/detail/config.h>
+
+_CCCL_IMPLICIT_SYSTEM_HEADER
 #include <thrust/tuple.h>
 #include <thrust/pair.h>
 #include <thrust/detail/reference_forward_declaration.h>
@@ -25,7 +27,7 @@ THRUST_NAMESPACE_BEGIN
 namespace detail
 {
 
-  
+
 template<
   typename... Ts
 >
