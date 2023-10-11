@@ -26,43 +26,44 @@
 _LIBCUDACXX_BEGIN_NAMESPACE_STD
 
 template <class _InputIter>
-inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX14
-void __advance(_InputIter& __i,
-             typename iterator_traits<_InputIter>::difference_type __n, input_iterator_tag)
-{
-    for (; __n > 0; --__n)
-        ++__i;
+inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX11 void
+__advance(_InputIter &__i,
+          typename iterator_traits<_InputIter>::difference_type __n,
+          input_iterator_tag) {
+  for (; __n > 0; --__n)
+    ++__i;
 }
 
 template <class _BiDirIter>
-inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX14
-void __advance(_BiDirIter& __i,
-             typename iterator_traits<_BiDirIter>::difference_type __n, bidirectional_iterator_tag)
-{
-    if (__n >= 0)
-        for (; __n > 0; --__n)
-            ++__i;
-    else
-        for (; __n < 0; ++__n)
-            --__i;
+inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX11 void
+__advance(_BiDirIter &__i,
+          typename iterator_traits<_BiDirIter>::difference_type __n,
+          bidirectional_iterator_tag) {
+  if (__n >= 0)
+    for (; __n > 0; --__n)
+      ++__i;
+  else
+    for (; __n < 0; ++__n)
+      --__i;
 }
 
 template <class _RandIter>
-inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX14
-void __advance(_RandIter& __i,
-             typename iterator_traits<_RandIter>::difference_type __n, random_access_iterator_tag)
-{
-   __i += __n;
+inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX11 void
+__advance(_RandIter &__i,
+          typename iterator_traits<_RandIter>::difference_type __n,
+          random_access_iterator_tag) {
+  __i += __n;
 }
 
 template <class _InputIter>
-inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX14
-void advance(_InputIter& __i,
-             typename iterator_traits<_InputIter>::difference_type __n)
-{
-    _LIBCUDACXX_ASSERT(__n >= 0 || __is_cpp17_bidirectional_iterator<_InputIter>::value,
-                       "Attempt to advance(it, -n) on a non-bidi iterator");
-    __advance(__i, __n, typename iterator_traits<_InputIter>::iterator_category());
+inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX11 void
+advance(_InputIter &__i,
+        typename iterator_traits<_InputIter>::difference_type __n) {
+  _LIBCUDACXX_ASSERT(__n >= 0 ||
+                         __is_cpp17_bidirectional_iterator<_InputIter>::value,
+                     "Attempt to advance(it, -n) on a non-bidi iterator");
+  __advance(__i, __n,
+            typename iterator_traits<_InputIter>::iterator_category());
 }
 
 _LIBCUDACXX_END_NAMESPACE_STD

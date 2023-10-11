@@ -27,20 +27,16 @@
 _LIBCUDACXX_BEGIN_NAMESPACE_STD
 
 template <class _InputIter>
-inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX14
-__enable_if_t
-<
-    __is_cpp17_input_iterator<_InputIter>::value,
-    _InputIter
->
-next(_InputIter __x,
-     typename iterator_traits<_InputIter>::difference_type __n = 1)
-{
-    _LIBCUDACXX_ASSERT(__n >= 0 || __is_cpp17_bidirectional_iterator<_InputIter>::value,
-                       "Attempt to next(it, -n) on a non-bidi iterator");
+inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX11
+    __enable_if_t<__is_cpp17_input_iterator<_InputIter>::value, _InputIter>
+    next(_InputIter __x,
+         typename iterator_traits<_InputIter>::difference_type __n = 1) {
+  _LIBCUDACXX_ASSERT(__n >= 0 ||
+                         __is_cpp17_bidirectional_iterator<_InputIter>::value,
+                     "Attempt to next(it, -n) on a non-bidi iterator");
 
-    _CUDA_VSTD::advance(__x, __n);
-    return __x;
+  _CUDA_VSTD::advance(__x, __n);
+  return __x;
 }
 
 _LIBCUDACXX_END_NAMESPACE_STD

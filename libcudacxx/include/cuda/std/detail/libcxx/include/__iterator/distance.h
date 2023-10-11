@@ -24,7 +24,7 @@
 _LIBCUDACXX_BEGIN_NAMESPACE_STD
 
 template <class _InputIter>
-inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX14
+inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX11
 typename iterator_traits<_InputIter>::difference_type
 __distance(_InputIter __first, _InputIter __last, input_iterator_tag)
 {
@@ -35,7 +35,7 @@ __distance(_InputIter __first, _InputIter __last, input_iterator_tag)
 }
 
 template <class _RandIter>
-inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX14
+inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX11
 typename iterator_traits<_RandIter>::difference_type
 __distance(_RandIter __first, _RandIter __last, random_access_iterator_tag)
 {
@@ -43,7 +43,7 @@ __distance(_RandIter __first, _RandIter __last, random_access_iterator_tag)
 }
 
 template <class _InputIter>
-inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX14
+inline _LIBCUDACXX_INLINE_VISIBILITY _LIBCUDACXX_CONSTEXPR_AFTER_CXX11
 typename iterator_traits<_InputIter>::difference_type
 distance(_InputIter __first, _InputIter __last)
 {
