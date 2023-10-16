@@ -24,6 +24,12 @@
 _CCCL_FORCE_SYSTEM_HEADER
 #endif // !_CCCL_COMPILER_NVHPC
 
+// For unknown reasons, nvc++ need to selectively disable this warning
+// We do not want to use our usual macro because that would have push / pop semantics
+#if defined(_CCCL_COMPILER_NVHPC)
+#pragma nv_diag_suppress 1407
+#endif // _CCCL_COMPILER_NVHPC
+
 // Enable us to hide kernels
 #if defined(_CCCL_COMPILER_MSVC)
 #  define _CCCL_ATTRIBUTE_HIDDEN
